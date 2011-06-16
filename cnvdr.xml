@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <bookinfo>
+    <title>CNVDR Live HTPC 1.02 安装使用手册</title>
+
+    <author>
+      <surname>aszxr</surname>
+
+      <email>aszxr@163.com</email>
+    </author>
+
+    <pubdate>May 22, 2011</pubdate>
+
+    <abstract>
+      <para>CNVDR是一款专业的基于PC平台的高清DVB-S2卫星电视或DVB-C有线电视接收设备的Linux操作系统。可免费使用并传播。此手册文档是为准备或正在使用CNVDR
+      1.02 Live HTPC的朋友而制作。不管您是CNVDR的老朋友还是新朋友，都应该认真读一读这份手册，希望能对您有所帮助！</para>
+    </abstract>
+  </bookinfo>
+
+  <chapter>
+    <title>了解CNVDR</title>
+
+    <section>
+      <title>特性</title>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis
+          role="bold">功能强大</emphasis>，CNVDR1.02意在为用户免费提供完整的HTPC操作系统解决方案，卫星/有线电视节目、媒体播放中心、在线网络电视/电影/视频点播、QQ聊天、网页浏览等功能俱全。超越当前HTPC所具备的功能极限。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">安装方便</emphasis>，无需破坏硬盘的分区结构，在XP/win7/Linux下几需几分钟就可以实现CNVDR与其它系统并存。可以不解开iso直接启动运行使用，支持从光盘、U盘、硬盘等多种启动介质。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">启动速度更快</emphasis>，执行效率更高，启动只需要十秒即可完全进入VDR界面。低功耗的ION离子平台可以流畅运行。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">配置更灵活</emphasis>，不做任何设置即可自动进入VDR界面，可直接在VDR中设置DiSEqC多种切换器设备（四切一、八切一、极轴等），自动导入共享帐号，一次设置一次完成。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">兼容性更高</emphasis>，支持的硬件更广泛，支持目前主流的PC/HTPC平台，最新的DVB-S2/C卫星/有线接收设备，多种遥控设备如MCE、开机遥控、DVB设备自带遥控、串口遥控等，支持多声道的模拟、HDMI、SPDIF音频输出。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">中文EPG更完善</emphasis>，让您不会错过任何您所喜爱的节目。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">网络支持更完善</emphasis>，同时支持各种有线网络、无线网络WIFI。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">文件共享更方便</emphasis>，可自动挂载并读写本地硬盘分区，家庭NAS共享、Windows网络共享，支持U盘、光盘的自动挂载。</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>硬件要求</title>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">CPU</emphasis>：Intel P4
+          2.0G或AMD同等性能的CPU，播放1080P高清时如果显卡不能承担视频解码则需要Intel Pentium
+          E5200及以上。</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis
+          role="bold">主板</emphasis>：推荐ION离子平台，值得注意的是系统的稳定运行及音频输出品质等与主板有重要的关系，请别忽略对主板的选择。</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">内存</emphasis>：不少于512M。</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis
+          role="bold">显卡</emphasis>：Nvidia最新显卡支持是最好的，比如nvidia　8400GS，9300GE、GT220、GT420等最新低端卡，以及同期的中、高端卡，同时本地显存256M及以上。想进一步了解哪些NVIDIA显卡能支持VDPAU请点击<ulink
+          url="http://en.wikipedia.org/wiki/Nvidia_PureVideo">这里</ulink>。AMD/Intel显卡可以支持软解，但OSD界面没有最理想的效果，同时cpu占用率会更高。</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">光驱</emphasis>：无特殊要求。</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis
+          role="bold">磁盘</emphasis>：CNVDR支持多种启动界质，U盘、硬盘、光驱都可以实现启动。理论上只需要U盘或光驱也可以正常运行CNVDR，但我们建议保留一个本地硬盘用于保存系统录像资料及系统配置(如果U盘容量足够大也可不需要本地硬盘）。需要注意的是目前U盘品种繁多，质量参差不齐。有些U盘根本就不能支持USB-HDD/USB-ZIP等启动方式，有些U盘不稳定，可能存在数据丢失的问题。请选择口碑良好的U盘。</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">遥控</emphasis>：推荐使用标准的<ulink
+          url="http://www.microsoft.com/windowsxp/mediacenter/using/tv/remote.mspx">MCE遥控</ulink>（如HP、Microsoft、Toshiba等）带红黄蓝绿四个颜色按键的尤佳），同时支持自制的串口遥控。最近我们还添加了对开机版MCE遥控（如遥酷Yaocoo黑/银媚等，不同于前面的MCE遥控）提供支持。某些DVB设备也提供了遥控支持，但需要了解驱动的支持情况。</para>
+        </listitem>
+      </itemizedlist>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis
+          role="bold">键鼠</emphasis>：推荐无线HTPC键鼠套装（带轨迹球或遥杆或触摸鼠标的尤佳）。注意1.02版本某些功能需要鼠标的支持。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">网卡及网络</emphasis>：支持常见的有线网卡及无线网卡（点击<ulink
+          url="http://linuxwireless.org/en/users/Devices">这里</ulink>查看目前能直接支持的无线网卡设备），支持wep或wpa2（推荐）认证的无线网络。如果启动CNVDR后不能驱动您的无线网卡（执行cat　/proc/net/wireless没有wlan0之类的接口），可能需要通过CNVDR内附的<ulink
+          url="http://en.wikipedia.org/wiki/NDISwrapper">ndiswrapper</ulink>工具添加windows驱动。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">DVB设备</emphasis>：推荐使用DVBHD（2080P、2080U、2088E），DVBSky（S830、S850、S860），DVBWorld（dw2002、dw2102、dw2004、dw2005、dw2006、dw2104、dw3101），双汉1020、SS2、TT、TBS8920、PROF、TeVii等。</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis
+          role="bold">切换器</emphasis>：支持四切一、八切一、22K，对具体型号无特殊要求，但注意有些切换器与dvb设备之间有兼容性问题。</para>
+
+          <tip>
+            <para>因为所涉及的硬件范围较广，不可能将所有的硬件都一一列出。如要了解更多有关硬件的支持情况可以到我们的<ulink
+            url="http://www.cnvdr.org/bbs/forumdisplay.php?fid=7">论坛</ulink>提问。</para>
+          </tip>
+        </listitem>
+      </itemizedlist>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>安装CNVDR</title>
+
+    <para>CNVDR1.02版本有一个非常重要的改进，那就是我们可以利用GRUB2、GRUB4DOS、Win7的BCD引导管理可直接引导cnvdr-1.02-live-htpc-aszxr.iso文件（后缀iso文件就是光盘的原始镜像文件，可直接刻录光盘的。下文将简称iso镜像文件）的这一特点，对CNVDR的引导部分进行了改进。也就是说如果您使了以上三种引导管理中的一种即可直接实现引导iso镜像文件而不需要将其解开到目标盘中。</para>
+
+    <para>当然我们也可以将iso镜像文件解开到目标盘，其方法方式与原来一致</para>
+
+    <para>实际上我们可以将iso镜像文件直接刻录成光盘，然后设置光盘启动直接使用CNVDR，而且在做好某些设置之后下次重启原设置不会变（需要有本地硬盘或U盘），用这种方式来使用CNVDR也未尝不可。但光驱使用频繁可能会对其使用寿命产生影响。</para>
+
+    <para>不同于一般的Linux发行版，安装CNVDR
+    1.02的方法是灵活多样的，下面举例说明几种，条条路通罗马，您只需要根据实际情况选择最适合自己的一种就行了。</para>
+
+    <note>
+      <para>cnvdr-1.02-live-htpc-aszxr.iso下载地址：请点击<ulink
+      url="ftp://vdr:7654321@218.90.167.196/cnvdr/1.02/cnvdr-1.02-live-htpc-aszxr.iso">这里</ulink></para>
+    </note>
+
+    <section>
+      <title>与Windows XP/Windows 7共舞</title>
+
+      <para>CNVDR 1.0 Live HTPC可以在不破坏原有的系统及硬盘分区结构下让Windows XP或Windows
+      7与之共存。这两个系统我们各提供了一种解决方案。其实方法也可能不只这些，比如在Windows
+      7我们还可以加载grub4dos启动，或Grub2启动等。</para>
+
+      <warning>
+        <para>如果您需要将CNVDR安装在硬盘，尽管下面介绍的方法均已通过测试，但这里不得不提醒大家一定要小心操作。</para>
+      </warning>
+
+      <section>
+        <title>在Windows XP中实现双系统启动</title>
+
+        <para>WindowsXP可以直接由grub4dos加载iso的方式来启动。这里我们提供了cnvdr_in_winxp.zip的包，里面包含了grub4dos的核心文件grldr及其配置文件menu.lst的一个范例（一般不需要修改即可直接用），在该压缩包中还有《CNVDR　1.02在WinXP下安装说明》对其安装方法有详细的说明，这里不再重述。</para>
+      </section>
+
+      <section>
+        <title>在Windows 7中实现双系统启动</title>
+
+        <para>微软Windows7采用了全新的BCD启动管理器，功能非常强大，可以直接引导iso光盘镜像文件。但官方BCD管理系统的配置过程较繁锁，一般是命令行操作或批处理操作。这里我们可以利用免费的EasyBCD程序，在Windows7中加入CNVDR启动项以实现Windows7与CNVDR的多重启动。</para>
+
+        <para>EasyBCD可以到<ulink
+        url="http://neosmart.net/dl.php?id=1">这里</ulink>获得最新版本。在安装该软件后打开主界面如下图所示，我们只需要按图中的提示操作即可。</para>
+
+        <warning>
+          <para>请严格按步骤操作，据部分网友反映，滥用该软件可能会造成您的Windows 7无法启动。</para>
+        </warning>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/cnvdr_2.jpg" />
+          </imageobject>
+        </mediaobject>
+      </section>
+    </section>
+
+    <section>
+      <title>在Windows下安装CNVDR的其它几种方法</title>
+
+      <para>我们既可以将CNVDR安装到您的硬盘，也可以安装到U盘。其实两者的操作过程大同小异。这里将统一作说明。</para>
+
+      <section>
+        <title>利用UltraISO工具直接写入映像（适合U盘安装）</title>
+
+        <para>这种办法可以用将CNVDR完整地复制到您的磁盘，同时将会写入CNVDR光盘的引导块。其具体方法是，用UltraISO打开CNVDR的iso映像，然后选取菜单中的“启动”→“写入硬盘映像…”，接下来便弹出对话框：</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/cnvdr_4.jpg" />
+          </imageobject>
+        </mediaobject>
+
+        <para>这里选取“硬盘驱动器”后再点击“写入”按扭即可。</para>
+
+        <tip>
+          <para>这是制作CNVDR启动U盘最简单的方式。推荐大家使用。</para>
+        </tip>
+      </section>
+
+      <section>
+        <title>基于Windows的其它安装方式</title>
+
+        <para>往U盘或安装CNVDR的方法除了可利用UtraISO外我们也可用其它方式安装。其步骤主要有两个，其一中将CNVDR整个系统整体复制到目标盘，其二是在目标盘中写入引导块。</para>
+
+        <para>对于复制整个系统到目标盘，这里我们可以利用UltraISO或WinRAR/Haozip压缩软件将iso镜像文件整体复制到目标盘。这里首先我们还是推荐使用UltraISO工具，如图所示，选取右栏的所有文件并右击菜单，选取“提取到…”，此时选择目标盘后点击确定即可。</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_5.jpg" />
+          </imageobject>
+        </mediaobject>
+
+        <para>当然我们也可使用winrar/haozip工具打开iso镜像文件并将其解压至目标盘，如图所示：</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_8.jpg" />
+          </imageobject>
+        </mediaobject>
+
+        <para>接下来我们利用iso镜像文件中的/boot/bootinst.bat写入引导块。请打开目标盘的\boot目录，双击其中的bootinst.bat文件，如图所示：</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_9.jpg"
+                       format="JPG" />
+          </imageobject>
+        </mediaobject>
+
+        <para>此时会弹出windows的命令提示符：</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_10.jpg" />
+          </imageobject>
+        </mediaobject>
+
+        <para>按任意键继续（除x外）：</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_6.jpg" />
+          </imageobject>
+        </mediaobject>
+
+        <para>至此，cnvdr的引导块（syslinux）已装载完成。</para>
+      </section>
+    </section>
+
+    <section>
+      <title>在Linux下安装CNVDR</title>
+
+      <para>在Linux下安装CNVDR也分为复制整个系统和写入引导块两种。其实CNVDR也是基于Linux的。CNVDR可以直接由光盘启动。只不过CNVDR光盘启动后本身是已经被挂载了的。所以在复制整个系统时会稍有不同。</para>
+
+      <para>在第三方Linux中，如果将CNVDR与这个Linux共享一个分区，那需要注意cnvdr的的内核启动文件/boot/vmlinuz及/boot/initrd.img可能会覆盖现有的同名内核，请将这两个文件改名，并修改相应的启动配置文件。</para>
+
+      <para>以U盘的安装为例，假设U盘已被挂载在/media/disk下。先建立一个iso文件的挂载点并挂载已经下载的cnvdr-1.02-live-htpc-aszxr.iso：</para>
+
+      <para><programlisting>mkdir　/meida/iso
+mount　-o　loop　/存放目录/cnvdr-1.02-live-htpc-aszxr.iso　/media/iso</programlisting></para>
+
+      <para>直接拷贝cnvdr整个系统至磁盘：</para>
+
+      <para><programlisting>cp　-a　/media/iso/*　/media/disk</programlisting></para>
+
+      <para>即可完成整个系统的复制。</para>
+
+      <para>下面说说利用CNVDR启动光盘启动的安装方式：</para>
+
+      <para>cnvdr光盘启动时我们选择”DEBUG“模式，启动后能自动挂载所有存储设备。比如光驱挂载在/media/cdrom下，U盘挂载在/media/sdb1下，用用户名为root，密码为cnvdr登录后执行：</para>
+
+      <para><programlisting>cp　-a　/media/cdrom/*　/media/sdb1</programlisting></para>
+
+      <para>即可完成整个系统的复制。</para>
+
+      <para>下面我们为目标盘写入引导块</para>
+
+      <para>在目前主流的Linux发行版中（如Ubuntu）都采用GRUB2来作为它的启动管理器。我们可以从多个渠道找到GRUB2的配置方法。其配置文件是/boot/grub/grub.cfg。在每次涉及内核及引导部分功能的更新时会自动覆盖，所以在改完后请作好备份。当然我们也可以为CNVDR写一个自动配置脚本放在/etc/grub.d下，这样每次自动更新grub.cfg便不需要重新配置了。</para>
+
+      <para>如果我们只是将CNVDR安装在U盘中，那我们必须为U盘写入引导块。这里写入引导块提供两种方式：syslinux引导及lilo引导（对应的脚本文件均放在光盘的/boot下，分别为bootinst.sh及liloinst.sh）。</para>
+
+      <para>下面就我们利用bootinst.sh脚本写入syslinux的引导块作出说明：</para>
+
+      <para><programlisting>cd　/media/disk/boot
+bash　bootinst.sh</programlisting></para>
+
+      <para>接下来便提示：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/cnvdr_7.jpg" />
+        </imageobject>
+      </mediaobject>
+
+      <para>此时按任意键便可继续：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/cnvdr_13.jpg" />
+        </imageobject>
+      </mediaobject>
+
+      <para>从以上信息我们可以了解到引导块已经安装在U盘设备/dev/sdb。此时按任意键便可退出。</para>
+
+      <para>Lilo是一种老牌的支持多种文件系统，多种操作系统的引导管理器，了解更有关lilo的情况请点击<ulink
+      url="http://en.wikipedia.org/wiki/LILO_(boot_loader)">这里</ulink>。这里我们将利用liloinsh.sh脚本往磁盘的mbr写入lilo的引导块：</para>
+
+      <para><programlisting>cd　/media/disk/boot
+bash　liloinst.sh
+</programlisting></para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/cnvdr_11.jpg" />
+        </imageobject>
+      </mediaobject>
+
+      <para>此时按任意键继续：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/cnvdr_1.jpg" />
+        </imageobject>
+      </mediaobject>
+
+      <para>从以上信息我们可以了解到lilo引导块已经安装在U盘设备/dev/sdb。此时按任意键便可退出。</para>
+
+      <para>在lilo引导块成功写入之后，在U盘的/boot目录下会产生lilo的配置文件/boot/lilo.conf，您可以在这里添加额外的启动项（比如Windows或其它Linux），具体方法请参考相关文档。</para>
+    </section>
+
+    <section>
+      <title>利用U盘作启动盘的相关问题</title>
+
+      <para>大多数主板（Intel845之后）在系统启动后按快捷键可选择启动设备，不同的主板对此键的定义会有所不同（比如<keycap>F11</keycap>、<keycap>F12</keycap>、<keycap>ESC</keycap>等），具体请参考主板的说明书。如果您想长期将U盘的CNVDR作为默认启动设备，请进入CMOS找到相应的设置项进行设置。</para>
+
+      <para>以上为CNVDR的安装说明，通过这些方式一般能成功安装CNVDR，但对于某些量产工具（比如群联）对U盘进行量产后可能会导致无法启动CNVDR（可以引导，但无法进入CNVDR），这种情况表现在Linux下只有/dev/sdb而不是/dev/sdb1（也就是说将整个U盘都格式化了而未对其进行分区），在这种情况下请使用Linux下的fdisk工具，删除所有的分区后再重新建立一个主分区，再格式化后安装CNVDR便可正常启动进入CNVDR。</para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>配置CNVDR</title>
+
+    <para>在继续掌握CNVDR具体配置及使用之前，我们需要对其有一个大致的了解。下面我们介绍一下CNVDR启动流程及主要操作方式。首先我们先来了解一下CNVDR默认的启动项：</para>
+
+    <para><mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_17.png" />
+        </imageobject>
+      </mediaobject></para>
+
+    <para>如例图所示，启动菜单中有五个启动项，其中第一项为默认启动项，选择该项会直接进入VDR，使用VDR后端+VDR-SXFE前端模式，这个是我们的主角，同时我们也可以从VDR的OSD菜单直接进入XBMC或PPStream网络电视/电影、Firefox浏览器。</para>
+
+    <para>第二项XBMC模式，这是一款功能强大的媒体播放中心。我们可以使用VDR的Streamdev-Server后端+XBMC的Streamdev-Client前端模式来播放电视节目，同时XBMC也包含有在线视频/电视/电影点播等强大的功能，界面赏心悦目，操作也容易上手。后面将有更详细的说明。</para>
+
+    <para>第三项为VDR-StreamServer模式，使用VDR　Streamdev-Server后端，将不启用VDR-SXFE前端，只作为VDR流服务器，不启动X和前端。在局域网或互联网（在互联网上可能需要在路由器上映射该VDR服务器的37890端口）利用VDR客户端如VDR-SXFE、XBMC（Streamdev插件)播放节目。</para>
+
+    <para>第四项为DEBUG项，会自动进入无VDR／XBMC的纯字符界面，这里您需要用用户名为<userinput>root</userinput>，密码为<userinput>cnvdr</userinput>登录。这样您就可以执行Linux命令行操作。</para>
+
+    <para>如果您并不讨厌经常将HTPC无线键盘放在手上那么遥控并不是必须的，因为在VDR/XBMC我们也完全可以利用键盘进行操作。这样的话我们有必须了解键盘的一些主要按键定义，基本的几个按键定义是这样的：<keycap>m</keycap>菜单，<keycap>q</keycap>电源，<keycap>c</keycap>命令，<keycap>f</keycap>频道，<keycap>&lt;</keycap>音量减，<keycap>&gt;</keycap>音量加，<keycap>？</keycap>静音，<keycap>r</keycap>为red红色，<keycap>g</keycap>为green绿色，<keycap>b</keycap>为black黑色，<keycap>y</keycap>为yellow黄色，<keycap>u</keycap>为user1,<keycap>-</keycap>频道减，<keycap>+</keycap>频道加，<keycap>backspace</keycap>和<keycap>0</keycap>都是频道返回。</para>
+
+    <para>下面我们来了解一下CNVDR的几个主要界面：</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata contentwidth="17cm" fileref="images/cnvdr_18.png"
+                   format="PNG" />
+      </imageobject>
+    </mediaobject>
+
+    <para>这个例图为VDR的主菜单，在进入VDR后按<keycap>M</keycap>或遥控上的<keysym>HOME</keysym>即可调出。</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata contentwidth="17cm" fileref="images/cnvdr_19.png"
+                   format="PNG" />
+      </imageobject>
+    </mediaobject>
+
+    <para>这个菜单为<guilabel>VDR主菜单—&gt;设置</guilabel>。在这里我们可以调节一些VDR的选项。比如OSD界面大小、字体、风格可进入“OSD”设置，DiSEqC切换器设置可以进入“高频头”设置，对插件的细调可以进入“插件”设置等。</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata contentwidth="17cm" fileref="images/cnvdr_20.png" />
+      </imageobject>
+    </mediaobject>
+
+    <para>这个例图为<guilabel>VDR主菜单—&gt;外部应用程序</guilabel>，由此我们可以直接进入XBMC媒体中心、PPStream在线电影/电视播放、FireFox浏览器、OpenBox窗口管理、Term终端。在退出这些软件后便正常返回VDR的原始状态（打开软件之的状态）。同时我们还可以在这里进入系统设置、DiSEqC切换器设置、网络设置、录像路径设置、音频输出设置等外部设置。下文中提到一些命令行操作，请在这里选择”Term终端“进入命令行模式进行操作。</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata contentwidth="17cm" fileref="images/cnvdr_21.png" />
+      </imageobject>
+    </mediaobject>
+
+    <para>这里是配置VDR插件的例图，位于<emphasis
+    role="bold"><guilabel>VDR主菜单—&gt;外部应用程序—&gt;软件设置—&gt;插件设置</guilabel></emphasis><note>
+        <orderedlist>
+          <listitem>
+            <para>大多数情况下我们可以直接手动修改配置文件，比如/etc/sysconfig等。我们可以利用<ulink
+            url="http://linuxtoy.org/archives/efficient-editing-with-vim.html">vi编辑工具</ulink>或<ulink
+            url="http://www.google.com.hk/url?sa=t&amp;source=web&amp;cd=4&amp;ved=0CDQQFjAD&amp;url=http%3A%2F%2Fzh.wikipedia.org%2Fwiki%2FNano_(%25E6%2596%2587%25E5%25AD%2597%25E7%25B7%25A8%25E8%25BC%25AF%25E5%2599%25A8)&amp;rct=j&amp;q=nano%20%E7%BC%96%E8%BE%91&amp;ei=kl35TYWDJom-uwOkv_iXAw&amp;usg=AFQjCNGQP8DCRQbmhrdXtQyNSbxEwL3y8g&amp;cad=rja">nano编辑工具</ulink>。</para>
+          </listitem>
+
+          <listitem>
+            <para>我们可以在Windows端用telnet工具登录CNVDR主机。在Windows下直接运行“命令提示符”或运行"cmd“进入命令提示符窗口。执行telnet
+            192.168.1.15（假若192.168.1.15为CNVDR主机的IP）</para>
+          </listitem>
+
+          <listitem>
+            <para>在Windows端我们还可以利用putty工具登录CNVDR主机。注意最好改成UTF-8字符模式，否则将无法显示中文。请参考<ulink
+            url="http://www.putty.ws/">这个文档</ulink>。同时我们还可以利用<ulink
+            url="http://winscp.net/eng/docs/lang:chs">winscp工具</ulink>复制备份文件。</para>
+          </listitem>
+
+          <listitem>
+            <para>在Linux下我们可以利用ssh直接登录，并用scp复制备份文件。</para>
+          </listitem>
+        </orderedlist>
+      </note></para>
+
+    <section>
+      <title>遥控器的设置</title>
+
+      <para>CNVDR默认支持的遥控是微软原装的Microsoft　MCE　RC6，与之兼容的有东芝、HP惠普、飞利浦、戴尔等（品牌比较多），此类遥控有一个共同特点是，在Linux下执行lsusb可发现该设备描述后缀均为“eHome　Infrared　Transceiver“，这种mce遥控也有几种规范，对应lirc的按键定义主要有三种（在cnvdr的/etc/lirc目录下）：lircd.conf.mceusb、lircd.conf.vista_mce、lircd.conf.mceusb_hauppauge，lirc默认的配置文件为/etc/lirc/lircd.conf如果发现系统默认的配置文件与您的mce遥控并不配套（这点可以在系统启动后执行irw命令，然后测试遥控，如果Shell端返回的键位不对则意为配置文件不配），我们可以用另一个配置文件覆盖/etc/lircd.conf，并重启lirc进程：</para>
+
+      <para><programlisting>/etc/init.d/lirc/　restart</programlisting></para>
+
+      <para>现在您应该可以看到lircd捕捉，解码按键了。运行irw，查看完毕后用<keysym>Ctrl</keysym>+<keycap>C</keycap>来结束应用程序。</para>
+
+      <para><programlisting>cnvdr:~# irw
+0000000080010066 00 Home devinput
+0000000080010192 00 ChanUp devinput
+0000000080010193 00 ChanDown devinput
+0000000080010073 00 VolUp devinput
+0000000080010072 00 VolDown devinput
+0000000080010191 00 Blue devinput
+000000008001018e 00 Red devinput
+00000000800100a7 00 Record devinput
+0000000080010002 00 One devinput
+</programlisting></para>
+
+      <para>在国内出现了一些也称之为MCE的遥控（比如遥酷Yaocoo银/黑媚开机版），其实这类遥控只是模拟键盘/鼠标的功能，一个按键往往被映射成<keycap>Ctrl</keycap>、<keycap>Alt</keycap>、<keycap>Shift</keycap>及字母、数字等组合键。这样的遥控设备并不能被lirc所直接调用。我们可以利用hid_mapper软件对各个按键进行重新定义，CNVDR已集成这一软件。因手头的遥控有限，目前只有遥酷Yaocoo银/黑媚及Aureal开机版遥控通过了测试并可正常使用。</para>
+
+      <para>下面以遥酷Yaocoo开机遥控为范例，说说其配置方法。首先请修改/etc/lirc/hardware.conf，找到两个设置并改成：</para>
+
+      <para><programlisting>REMOTE_DRIVER="devinput"
+REMOTE_DEVICE="/dev/input/hid_mapper"
+</programlisting></para>
+
+      <para>同时还需要使用lircd.conf.devinput，覆盖/etc/lircd.conf后重启/etc/init.d/lirc即可生效。对于这种遥控我们编写了一个udev规则，可以自动识别这种遥控并自动启动hid_mapper进程，并产生/dev/input/hid_mapper虚拟输入设备。还有许多遥控也可以用这种方法配置。不同的遥控对应的按键定义可能不一样。您可以访问hid_mapper作者的帖子更详细了解相关的情况，请点击<ulink
+      url="http://forum.xbmc.org/showthread.php?t=88560">这里</ulink>。</para>
+
+      <para>一般DVB设备都自带遥控，但有些设备对此功能的支持不完整，导致自带遥控在CNVDR无法使用。当然也有一些是可以使用的，但需要进行一些设置。这里我们可以利用VDR带的vdr-remote（默认remote插件未选中，我们须选中该插件）插件对遥控进行按键学习。</para>
+
+      <para>还有一些特殊的遥控，比如串口遥控、其它品牌的特殊遥控等，lirc可能已经对其提供了支持，请参考网上相关文档。</para>
+
+      <tip>
+        <orderedlist>
+          <listitem>
+            <para>请尽量为CNVDR选择标准的MCE遥控（带四颜色按钮的微软夜光版尤佳）。如果您在遥控方面遇到困难，也可以到我们论坛的<ulink
+            url="???"><ulink
+            url="http://www.cnvdr.org/bbs/forumdisplay.php?fid=7">硬件讨论区</ulink></ulink>提问，提问时请公布输入命令lsusb产生的硬件ID以及相关的品牌、型号等信息。我们尽量为您解决问题。</para>
+          </listitem>
+
+          <listitem>
+            <para>有些遥控并没有四个颜色按键，我们可以直接在/etc/vdr/remote.conf对这四个键重新定义成一些被闲置的按键，比如Clear，Enter等。</para>
+          </listitem>
+
+          <listitem>
+            <para>CNVDR默认采用/etc/lirc/lircd.conf.mceusb作为遥控的默认配置。</para>
+          </listitem>
+        </orderedlist>
+      </tip>
+    </section>
+
+    <section>
+      <title>DiSEqC切换器设置</title>
+
+      <para>CNVDR改进了对切换器的设置程序，可以直接在VDR中设置各种四切一、八切一以及各种切换器组合、极轴等。设置过程更为方便、简洁。这里我们提供两种方式进行设置，其一为VDR集成的切换器设置</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_22.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>这个例图位于<guilabel>VDR主菜单—&gt;设置—&gt;高频头</guilabel>，注意DiSEqC的版本号，在您的切换器设备上的标签可以看到。</para>
+
+      <note>
+        <para>值得注意的是这里可能需要遥控上的四个颜色按键才能修改高频头的本振频率。</para>
+      </note>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_23.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>这个例图位于<guilabel>VDR主菜单—&gt;外部应用程序—&gt;DiSEqC设置</guilabel>，这里需要键盘操作，配置过程简单、明了，也可以配置复杂的切换器组合。配置完后可自动生效。</para>
+
+      <tip>
+        <para>DiSEqC的版本号，在您的切换器设备上的标签可以看到。MiniDiSEqC二切一并不是22k切换器，而DiSEqC1.0一般是市面上通用的四切一，最多为四个端口，而DiSEqC1.1最多可以有十六个端口，市面上的八切一、十切一、十二切一都是这种。当然也有一些四切一也是DiSEqC1.1标准。</para>
+      </tip>
+    </section>
+
+    <section>
+      <title>音频输出设置</title>
+
+      <para>我们都知道，目前板载的HD音效芯片功能强大，音质也较好。同时具有模拟、HDMI、SPDIF几种输出模式。CNVDR默认为模拟音频输出，如果需要改变其它输出模式，只需选择您所需要的音频输出通道即可，如图所示：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_24.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>这个例图位于<guilabel>VDR主菜单—&gt;外部应用程序—&gt;音频输出设置</guilabel>，这个例图有两个输出接口，其一为模拟输出，其二是HDMI输出。选择好后便可测试音频，如果测试正常即可立即生效，否则还可以重新返回选择。</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/cnvdr_25.png" />
+        </imageobject>
+      </mediaobject>
+    </section>
+
+    <section>
+      <title>录像路径设置</title>
+
+      <para>录像是VDR最擅长于做的事。因为CNVDR的运行机制限制，我们可以选择一个本地硬盘分区为VDR录像存储空间。如图所示：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_26.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>这个例图的位置在<guilabel>VDR主菜单—&gt;外部应用程序—&gt;录像路径设置</guilabel>，如果需要改变系统启动时默认设置的则需要重启才会生效。像这个例图VDR的录像将会保存在/media/sda2/cnvdrcache/video，同时/media/sda2/cnvdrcache/pps作为PPStream缓冲空间。</para>
+
+      <tip>
+        <orderedlist>
+          <listitem>
+            <para>如果这个分区是FAT32或NTFS的则可以直接在Windows调用录像。</para>
+          </listitem>
+
+          <listitem>
+            <para>这一步骤并不是必须的。因为CNVDR启动时可以自动查到最大空闲容量的那个分区。这里您可以修改这个设置。</para>
+          </listitem>
+        </orderedlist>
+      </tip>
+    </section>
+
+    <section>
+      <title>共享帐号设置</title>
+
+      <para>对CCcam.cfg的格式相信大家并不陌生，我们只需将其放在Windows的C:\或D:\或其它盘符的根目录下，也可放在Linux分区的根目录下。在CNVDR启动时能自动导入帐号，顺利导入后即可删除。当然我们还有其它方式设置，比如以菜单的方式：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="16cm" fileref="images/cnvdr_27.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>位于<guilabel>VDR主菜单—&gt;外部应用程序—&gt;软件设置—&gt;SC</guilabel>，这里我们可以同时设置CCcam、camd35、newcamd等多种类型的帐号。当然我们也可以直接修改配置文件，位于/etc/vdr/plugins/sc/cardclient.conf</para>
+
+      <para><programlisting>cccam2:hostname:port:emm/caid/mask:username:password
+假如主机名为www.gx.com，端口号为12000，用户名为user，密码为password：
+cccam2:www.gx.com:12000:0/0000/0000:user:password</programlisting></para>
+    </section>
+
+    <section>
+      <title>网络设置</title>
+
+      <para>cnvdr可同时对有线、无线网卡的各种加密方式（如wep、wpa/wpa2）进行支持。如果您使用板载网卡并由DHCP自动获取IP地址则一般不需要进行额外的网络设置。当然我们也可以在这里指定IP地址（固定IP）设置。这个范例针对wpa2加密的无线网络设置进行介绍，如图所示：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_28.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>这个例图位于<guilabel>VDR主菜单—&gt;外部应用程序—&gt;网络设置</guilabel>，有线网卡一般是ethX（X=0,1,2…）接口，无线网卡一般是wlanX（X=0,1,2…）接口。如果您配置的是无线网卡，能自动搜索到的已广播的无线SSID（需路由器支持）并自动选择其加密方式，如果您的无线网络ssid是非广播的请选择手动设置无线网络。如图所示：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_29.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>选择好一个SSID后就可以设置wpa认证口令了。</para>
+
+      <tip>
+        <para>如果您需要通过本地无线网络在客户端播放CNVDR主机高清节目的话可能需要至少300Mbps的无线网络速度。</para>
+      </tip>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>使用CNVDR</title>
+
+    <section>
+      <title>在XBMC进行在线电影/电视/视频点播</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_30.png"
+                     format="PNG" />
+        </imageobject>
+      </mediaobject>
+
+      <para>在XBMC中我们可以随意在线点播网络电视/电影/视频，其位置在<guilabel>XBMC—&gt;视频—&gt;视频扩展功能</guilabel></para>
+    </section>
+
+    <section>
+      <title>在VDR客户端同步播放CNVDR主机的电视节目</title>
+
+      <para>首先在服务器端启动第三项即StreamServer模式，这个服务器端会启动VDR作为后台。在服务器端我们建议指定IP地址。我们可以利用用户名：<emphasis
+      role="bold">root</emphasis>，密码：<emphasis
+      role="bold">cnvdr</emphasis>登录，登录后运行netconfig设置。当然我们也可以利用路由器上的静态DHCP自动分配指定的ip地址。如果该VDR服务器需要在互联网上共享，请在路由器上设置好映射（Streamdev　server默认端口为37890）还有其它的设置，比如运行diseqcsetup对DiSEqC进得配置，以及CCcam帐号设置等。请参考上面相关教程。</para>
+
+      <para>然后在网内另一台pc上启用<guilabel>VDR主菜单—&gt;外部应用程序—&gt;</guilabel><emphasis
+      role="bold">客户端（连接VDR服务器）</emphasis>，我们需要在客户端指定流服务器VDR　StreamServer的IP地址，在TERM终端用vi或nano编辑/etc/streamserver.conf写入服务端IP，如192.168.1.15即可。</para>
+    </section>
+
+    <section>
+      <title>在XBMC播放vdr电视节目</title>
+
+      <para>XBMC的功能是相当强大的。我们还可以通过为其添加插件来获得更多的功能。那么我们可不可以用XBMC作为前端来播放VDR节目？答案是肯定的。下图就是利用XBMC播放VDR节目的一张屏幕截图：</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_31.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>用XBMC播放VDR节目需要启动VDR“后台”，与此同时我们便将XBMC称作为“前台”。因此如果您更愿意使用XBMC观看电视节目的话请至少进入VDR界面做好基本的配置，比如DiSEqC设置、共享帐号设置等。</para>
+
+      <para>XBMC我们可以通过streamdev-client和vnsi-client两种pvr插件来实现客户端播放。而在VDR后台也对应启用streamdev-server插件或vnsiserver插件。对于XBMC而言，如果默认都打开些插件的话会造成冲突。因此下面这些设置都要用户自行设置。</para>
+
+      <para>下面我们将在客户机上用XBMC播放VDR节目及在本机上用XBMC播放VDR节目来分别说明操作方法。不管哪种情况，我们首先要在XBMC中打开TV功能。请看下面的例图：</para>
+
+      <para><mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_12.png" />
+          </imageobject>
+        </mediaobject>如上图所示的位置在<guilabel>XBMC—&gt;设置—&gt;TV—&gt;常用</guilabel>，点击“开启”来打开XBMC的TV功能。</para>
+
+      <note>
+        <para>用XBMC代替VDR-SXFE前端播放节目时换台速度可能不如后者，同时使用原生的VDR-SXFE作前端运行会更稳定。</para>
+      </note>
+
+      <section>
+        <title>用XBMC远程播放VDR电视节目</title>
+
+        <para>在CNVDR服务器端（VDR后台），我们从第三项正常启动VDR　StreamServer模式。在XBMC客户机上（XBMC前端），我们可做如下配置：</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_33.png" />
+          </imageobject>
+        </mediaobject>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_15.png" />
+          </imageobject>
+        </mediaobject>
+
+        <para>如上图所示的位置在<guilabel>XBMC—&gt;系统设置—&gt;扩展功能—&gt;已启用扩展功能—&gt;PVR　clients—&gt;VDR　Streamdev　Client</guilabel>，这里我们首先点击“<emphasis
+        role="bold">设置</emphasis>”，我们将VDR　Hostname设置为CNVDR服务器ip地址（VDR后台），比如192.168.1.104，然后回到这个页面并点击“<emphasis
+        role="bold">启用</emphasis>“即可立即启用XBMC的客户端VDR播放模式。</para>
+
+        <para>在本机我们也可以用XBMC直接看VDR电视节目。我们只需在启动时选择第二项启动XBMC，然后同前面一样打开XBMC的Stream
+        Client的PVR插件即可。（不需要进行额外的设置）</para>
+      </section>
+
+      <section>
+        <title>使用XBMC播放电视节目</title>
+
+        <para>在启动时我们选择从第二项启动XBMC，此时在本机后台会自动启动一个VDR后端，并自动打开了streamdev-server的插件。进入XBMC后我们需要打开VDR
+        Streamdev Client的PVR插件，请见例图：</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="17cm" fileref="images/cnvdr_33.png" />
+          </imageobject>
+        </mediaobject>
+
+        <para>如上图所示的位置在<guilabel>XBMC—&gt;系统设置—&gt;扩展功能—&gt;已启用扩展功能—&gt;PVR　clients—&gt;VDR　Streamdev　Client</guilabel>，这里我们一般不需要额外的配置，这个页面并点击“<emphasis
+        role="bold">启用</emphasis>“即可立即启用本机XBMC的VDR播放模式。</para>
+      </section>
+    </section>
+
+    <section>
+      <title>在Windows/Mac OSX下利用VLC播放VDR节目</title>
+
+      <para>首先VDR服务器端需要打开streamdev-server插件，用浏览器访问VDR的IP地址如http://192.168.2.20,出现vdradmin的登录界面，用户名为<userinput>cnvdr</userinput>,密码也为<userinput>cnvdr</userinput>,然后按下图把m3u文件存在您容易找到的地方，比如桌面。</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_3.jpg" />
+        </imageobject>
+      </mediaobject>
+
+      <para>在下载完这个VDR频道表后，您就可以用vlc这个软件来连接vdr观看节目了，并且使用vlc的列表功能切换频道。且vlc在mac,*nix,windows*上都有相应的版本，使用也很方便，使得一试！
+      下图为最后观看效果:</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_14.jpg" />
+        </imageobject>
+      </mediaobject>
+
+      <note>
+        <para>用这种办法在客户端利用VLC只能切换与CNVDR服务器端当前频道在同一个转发器中的频道。</para>
+      </note>
+    </section>
+
+    <section>
+      <title>Firefox网页浏览</title>
+
+      <para>在当今这个网络时代，一个浏览器可以做很多事，我们甚至可以用来代替我们的桌面来进行日常操作、娱乐游戏、聊天等。比如下图就是腾迅打造的一站式网络服务的页面。在里面我们可以QQ聊天、听音乐、看电影等。默认的输入法是fcitx，汉字输入在CNVDR中不存在任何障碍。</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_35.png" />
+        </imageobject>
+      </mediaobject>
+    </section>
+
+    <section>
+      <title>PPStream在线电视/电影点播</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata contentwidth="17cm" fileref="images/cnvdr_34.png" />
+        </imageobject>
+      </mediaobject>
+
+      <para>相信大多数朋友对Windows下的PPS非常的熟悉。Linux版本的PPS同样优秀。CNVDR已经集成了最新版的PPStream。注意这里需要鼠标的支持。</para>
+
+      <note>
+        <para>PPS界面字体过小的问题暂不能解决。</para>
+      </note>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>其它注意事项</title>
+
+    <para>还有一些上面未提到的一些其它事项，归纳于此：</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>在1.02正式版发布以前曾发布过十几个测试版，存在于硬盘中的原有的LOOPDISK文件cnvdrdsk.102可能会引起冲突，请将该文件(cnvdrdsk.102一般存在于某个分区的一级目录下，如果在Linux下将所有硬盘都挂载在/media下的话则可以用命令行：</para>
+
+        <para><programlisting>find　/media　-maxdepth　2　-name　cnvdrdsk.102</programlisting></para>
+
+        <para>即可找到其所在位置。我们建议在使用新版本之前将其改名或删除。如果碰到CNVDR不能正常运作的情况下我们也可以删除该文件，再次启动CNVDR时会自动重建。</para>
+      </listitem>
+
+      <listitem>
+        <para>请尽量使用推荐的硬件，比如支持硬解的Nvidia显卡、通过测试的部分DVB-S2设备等。在第一章有详细说明。</para>
+      </listitem>
+
+      <listitem>
+        <para>在VDR中直接播放138的HiHD频道会无声，请使用xbmc播放。</para>
+      </listitem>
+
+      <listitem>
+        <para>CNVDR本身涉及的方面非常多，我们也不可能做到面面俱到。如果您对CNVDR有何建议请移步到我们的<ulink
+        url="http://www.cnvdr.org">论坛</ulink>提出。</para>
+      </listitem>
+
+      <listitem>
+        <para>如果在使用操作过程中碰到一些问题，并且在该手册中未提到的，也请移步到我们的<ulink
+        url="http://www.cnvdr.org">论坛</ulink>提出。我们尽力为您解答。</para>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+</book>
